@@ -1,7 +1,9 @@
 #include <iostream>
 #include <string>
+#include "CommandParser.h"
 
 int main() {
+    // Starting menu loop
     while (true) {
         std::cout << "Hello World!" << std::endl;
 
@@ -11,7 +13,7 @@ int main() {
 
         std::string input = "";
 
-        std::cin >> input;
+        std::getline(std::cin, input);
 
         if (input == "0") {
             exit(0);
@@ -24,9 +26,16 @@ int main() {
         }
     }
 
-    std::cout << "This is where the game is supposed to be. Still coding!" << std::endl;
-    char temp;
-    std::cin >> temp;
+    std::cout << "Welcome to the game. Please type and enter a command to proceed. Type and enter 'help' for a list of commmands.\n" << std::endl;
+
+    // Game loop
+    while (true) {
+        CommandParser commandParser;
+        commandParser.processCommand();
+        if (commandParser.isEndGame()) {
+            break;
+        }
+    }
     
     return 0;
 };
