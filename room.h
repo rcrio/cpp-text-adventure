@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include "item.h"
+#include "Item.h"
 
 class Room {
     // Room uses ptrs as nullptr rooms indicate dead-ends.
