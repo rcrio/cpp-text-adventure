@@ -1,7 +1,8 @@
 #include "CommandParser.h"
+#include "Room.h"
 #include <iostream>
 
-CommandParser::CommandParser() : endGame(false) {}
+CommandParser::CommandParser(Room* room) : room(room), endGame(false) {}
 
 void CommandParser::processCommand() {
     std::getline(std::cin, this->input);
@@ -10,16 +11,36 @@ void CommandParser::processCommand() {
         std::cout << "help lol" << std::endl;
     }
     else if (input == "go north") {
-        std::cout << "help lol 1" << std::endl;
+        if (room->getNorth() != nullptr) {
+            room = room->getNorth();
+            std::cout << "You moved south. You are now in room " << room->getId() << "." << std::endl;
+        } else {
+            std::cout << "You can't go north. It's a wall." << std::endl;
+        }
     }
     else if (input == "go south") {
-        std::cout << "help lol 2" << std::endl;
+        if (room->getSouth() != nullptr) {
+            room = room->getSouth();
+            std::cout << "You moved south. You are now in room " << room->getId() << "." << std::endl;
+        } else {
+            std::cout << "You can't go south. It's a wall." << std::endl;
+        }
     }
     else if (input == "go west") {
-        std::cout << "help lol 3" << std::endl;
+        if (room->getWest() != nullptr) {
+            room = room->getWest();
+            std::cout << "You moved west. You are now in room " << room->getId() << "." << std::endl;
+        } else {
+            std::cout << "You can't go west. It's a wall." << std::endl;
+        }
     }
     else if (input == "go east") {
-        std::cout << "help lol 4" << std::endl;
+        if (room->getEast() != nullptr) {
+            room = room->getEast();
+            std::cout << "You moved east. You are now in room " << room->getId() << "." << std::endl;
+        } else {
+            std::cout << "You can't go east. It's a wall." << std::endl;
+        }
     }
     else if (input == "exit") {
         this->endGame = true;

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "CommandParser.h"
+#include "MapGenerator.h"
 
 int main() {
     // Starting menu loop
@@ -26,11 +27,12 @@ int main() {
         }
     }
 
+    MapGenerator mapGenerator;
+    CommandParser commandParser(mapGenerator.getStartRoom());
     std::cout << "Welcome to the game. Please type and enter a command to proceed. Type and enter 'help' for a list of commmands.\n" << std::endl;
-
+    std::cout << "You are currently in room " << mapGenerator.getStartRoom()->getId() << "." << std::endl;
     // Game loop
     while (true) {
-        CommandParser commandParser;
         commandParser.processCommand();
         if (commandParser.isEndGame()) {
             break;

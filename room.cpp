@@ -2,24 +2,52 @@
 #include "Item.h"
 #include <vector>
 
+Room::Room(int id) : id(id), north(nullptr), south(nullptr), west(nullptr), east(nullptr), items() {}
 
-Room::Room(int id, Room* north, Room* south, Room* west, Room* east) : id(id), north(north), south(south), west(west), east(east) {}
+Room::Room(int id, Room* north, Room* south, Room* west, Room* east) : id(id), north(north), south(south), west(west), east(east), items() {}
 
-const Room* Room::getNorth() const {
+// getters
+
+Room* Room::getNorth() const {
     return this->north;
 }
 
-const Room* Room::getSouth() const {
+Room* Room::getSouth() const {
     return this->south;
 }
 
-const Room* Room::getWest() const {
+Room* Room::getWest() const {
     return this->west;
 }
 
-const Room* Room::getEast() const {
+Room* Room::getEast() const {
     return this->east;
 }
+
 const std::vector<Item>& Room::getItems() const {
     return this->items;
 }
+
+int Room::getId() const {
+    return this->id;
+}
+
+// setters
+
+void Room::setNorth(Room* room) {
+    this->north = room;
+}
+
+void Room::setSouth(Room* room) {
+    this->south = room;
+}
+
+void Room::setWest(Room* room) {
+    this->west = room;
+}
+
+void Room::setEast(Room* room) {
+    this->east = room;
+}
+
+
