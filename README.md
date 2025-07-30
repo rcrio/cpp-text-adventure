@@ -10,17 +10,19 @@ I really enjoyed my text adventure coursework in university but didn't have enou
 - Commands "go north, go south, go west, go east" to move to different rooms
 
 # Upcoming features
+- Minimap
 - NPCs
 - Items
 - Win condition
 - Unit tests
-- Documentation
+- Detailed Documentation
 - Scene manager for Main Menu and Game (potentially cutscenes as well)
 
 # Potential features
 - Save and load states
 - Randomly generated map per run
 - Turn-based combat with enemies
+- Use CMake
 
 # Skills demonstrated
 - C++
