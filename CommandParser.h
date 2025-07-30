@@ -6,6 +6,7 @@ class CommandParser {
 public:
     CommandParser(Room* room);
     void processCommand();
+    void printRoomExits();
     const bool isEndGame() const;
 private:
     std::string input;
