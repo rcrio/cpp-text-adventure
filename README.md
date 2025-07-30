@@ -26,5 +26,6 @@ I really enjoyed my text adventure coursework in university but didn't have enou
 - C++
 - Kanban methodology with Jira
 - Git
+- Branch management with Jira for features
 
 Inspired by one of my courseworks and the use of Jira was inspired by https://github.com/Nazar2347/Snake!
