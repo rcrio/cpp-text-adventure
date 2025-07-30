@@ -4,12 +4,14 @@
 
 class CommandParser {
 public:
-    CommandParser(Room* room);
-    void processCommand();
-    void printRoomExits();
-    const bool isEndGame() const;
+    CommandParser();
+    std::string getInput();
+    void processMenuCommand();
+    void processGameCommand(Room*& room);
+    void printRoomExits(Room* room);
+    const bool isInMenu() const;
+    const bool isInGame() const;
 private:
-    std::string input;
-    bool endGame;
-    Room* room;
+    bool inMenu;
+    bool inGame;
 };

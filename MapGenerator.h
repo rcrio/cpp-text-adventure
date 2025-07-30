@@ -5,7 +5,7 @@
 class MapGenerator {
 public:
     MapGenerator();
-    Room* getStartRoom();
+    Room*& getCurrentRoom();
 private:
     std::vector<Room> rooms;
     Room* startRoom;
