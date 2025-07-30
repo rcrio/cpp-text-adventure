@@ -4,44 +4,27 @@
 #include "MapGenerator.h"
 
 int main() {
-    // Starting menu loop
+    CommandParser commandParser;
+    MapGenerator MapGenerator;
+    Room* room = MapGenerator.getCurrentRoom();
+
+    std::cout << "===========================================\n";
+    std::cout << "Welcome to rcrio's C++ Text Adventure game\n";
+    std::cout << "===========================================\n\n";
+
+    // Main game loop
     while (true) {
-        std::cout << "===========================================\n";
-        std::cout << "Welcome to rcrio's C++ Text Adventure game\n";
-        std::cout << "===========================================\n\n";
-
-        std::cout << "===========================================\n";
-        std::cout << "Type and enter: " << std::endl;
-        std::cout << "1 to play the game" << std::endl;
-        std::cout << "0 to exit the game" << std::endl;
-        std::cout << "===========================================\n\n";
-
-        std::string input = "";
-
-        std::cout << "Your input: ";
-        std::getline(std::cin, input);
-
-        if (input == "0") {
-            exit(0);
-        } 
-        else if (input == "1") {
-            break;
+        if (commandParser.isInMenu()) {
+            commandParser.processMenuCommand();
         }
-        else {
-            std::cout << "\nInvalid option, please try again." << std::endl;
+        if (commandParser.isInGame()) {
+            commandParser.processGameCommand(room);
         }
-    }
-
-    MapGenerator mapGenerator;
-    CommandParser commandParser(mapGenerator.getStartRoom());
-    std::cout << "\nWelcome to the game. Please type and enter a command to proceed. Type and enter 'help' for a list of commmands.\n" << std::endl;
-    // Game loop
-    while (true) {
-        commandParser.processCommand();
-        if (commandParser.isEndGame()) {
+        if (!commandParser.isInGame() && !commandParser.isInMenu()) {
             break;
         }
     }
+
     
     return 0;
 };

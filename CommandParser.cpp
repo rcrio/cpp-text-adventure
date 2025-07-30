@@ -2,9 +2,17 @@
 #include "Room.h"
 #include <iostream>
 
-CommandParser::CommandParser(Room* room) : room(room), endGame(false) {}
+CommandParser::CommandParser() : inGame(false), inMenu(true) {}
 
-void CommandParser::printRoomExits() {
+std::string CommandParser::getInput() {
+    std::string input = "";
+    std::cout << "\nYour input: ";
+    std::getline(std::cin, input);
+    std::cout << "\n";
+    return input;
+}
+
+void CommandParser::printRoomExits(Room* room) {
     std::cout << "You are currently in room " << room->getId() << ".\n";
     if (room->getNorth() != nullptr) {
         std::cout << "There is a way north. ";
@@ -18,14 +26,29 @@ void CommandParser::printRoomExits() {
     if (room->getEast() != nullptr) {
         std::cout << "There is a way east. ";
     }
-    std::cout << "\n\n";
+    std::cout << "\n";
 }
 
-void CommandParser::processCommand() {
-    printRoomExits();
-    std::cout << "Your input: ";
-    std::getline(std::cin, this->input);
-    std::cout << "\n";
+void CommandParser::processMenuCommand() {
+    std::cout << "Type and enter: " << std::endl;
+    std::cout << "1 to play the game" << std::endl;
+    std::cout << "0 to exit the game" << std::endl;
+    std::string input = getInput();
+    if (input == "0") {
+        exit(0);
+    } 
+    else if (input == "1") {
+        this->inGame = true;
+        this->inMenu = false;
+    }
+    else {
+        std::cout << "\nInvalid option, please try again." << std::endl;
+    }
+}
+
+void CommandParser::processGameCommand(Room*& room) {
+    printRoomExits(room);
+    std::string input = getInput();
     if (input == "help") {
         std::cout << "Nothing here at the moment...\n";
     }
@@ -62,13 +85,18 @@ void CommandParser::processCommand() {
         }
     }
     else if (input == "exit") {
-        this->endGame = true;
+        this->inMenu = true;
+        this->inGame = false;
     }
     else {
-            std::cout << "\nInvalid command, please try again or type and enter 'help' to get a list of commands.\n\n";
+            std::cout << "Invalid command, please try again or type and enter 'help' to get a list of commands.\n\n";
     }
 }
 
-const bool CommandParser::isEndGame() const {
-    return this->endGame;
+const bool CommandParser::isInMenu() const {
+    return this->inMenu;
+}
+
+const bool CommandParser::isInGame() const {
+    return this->inGame;
 }

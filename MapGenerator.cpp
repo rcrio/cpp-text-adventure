@@ -41,6 +41,6 @@ MapGenerator::MapGenerator() : rooms() {
     this->startRoom = &this->rooms[0];
 }
 
-Room* MapGenerator::getStartRoom() {
+Room*& MapGenerator::getCurrentRoom() {
     return this->startRoom;
 }
