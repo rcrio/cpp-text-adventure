@@ -2,11 +2,14 @@
 #include <string>
 #include "CommandParser.h"
 #include "MapGenerator.h"
+#include "Map.h"
 
 int main() {
     CommandParser commandParser;
-    MapGenerator MapGenerator;
-    Room* room = MapGenerator.getCurrentRoom();
+    MapGenerator mapGenerator;
+    Map* map = mapGenerator.createMap();
+    Room* currentRoom = map->getCurrentRoom();
+
 
     std::cout << "===========================================\n";
     std::cout << "Welcome to rcrio's C++ Text Adventure game\n";
@@ -18,7 +21,9 @@ int main() {
             commandParser.processMenuCommand();
         }
         if (commandParser.isInGame()) {
-            commandParser.processGameCommand(room);
+            mapGenerator.updateMinimap(map);
+            std::cout << map->getMinimap();
+            commandParser.processGameCommand(map);
         }
         if (!commandParser.isInGame() && !commandParser.isInMenu()) {
             break;

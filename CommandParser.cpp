@@ -33,7 +33,9 @@ void CommandParser::processMenuCommand() {
     std::cout << "Type and enter: " << std::endl;
     std::cout << "1 to play the game" << std::endl;
     std::cout << "0 to exit the game" << std::endl;
+
     std::string input = getInput();
+
     if (input == "0") {
         exit(0);
     } 
@@ -46,15 +48,18 @@ void CommandParser::processMenuCommand() {
     }
 }
 
-void CommandParser::processGameCommand(Room*& room) {
+void CommandParser::processGameCommand(Map* map) {
+    Room* room = map->getCurrentRoom();
     printRoomExits(room);
+
     std::string input = getInput();
+
     if (input == "help") {
         std::cout << "Nothing here at the moment...\n";
     }
     else if (input == "go north") {
         if (room->getNorth() != nullptr) {
-            room = room->getNorth();
+            map->updateCurrentRoom(room->getNorth());
             std::cout << "You moved north.\n";
         } else {
             std::cout << "You can't go north. It's a wall.\n";
@@ -62,7 +67,7 @@ void CommandParser::processGameCommand(Room*& room) {
     }
     else if (input == "go south") {
         if (room->getSouth() != nullptr) {
-            room = room->getSouth();
+            map->updateCurrentRoom(room->getSouth());
             std::cout << "You moved south.\n";
         } else {
             std::cout << "You can't go south. It's a wall.\n";
@@ -70,7 +75,7 @@ void CommandParser::processGameCommand(Room*& room) {
     }
     else if (input == "go west") {
         if (room->getWest() != nullptr) {
-            room = room->getWest();
+            map->updateCurrentRoom(room->getWest());
             std::cout << "You moved west.\n";
         } else {
             std::cout << "You can't go west. It's a wall.\n";
@@ -78,7 +83,7 @@ void CommandParser::processGameCommand(Room*& room) {
     }
     else if (input == "go east") {
         if (room->getEast() != nullptr) {
-            room = room->getEast();
+            map->updateCurrentRoom(room->getEast());
             std::cout << "You moved east.\n";
         } else {
             std::cout << "You can't go east. It's a wall.\n";
