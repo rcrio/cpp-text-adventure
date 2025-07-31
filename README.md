@@ -16,13 +16,14 @@ I really enjoyed my text adventure coursework in university but didn't have enou
 - Win condition
 - Unit tests
 - Detailed Documentation
-- Scene manager for Main Menu and Game (potentially cutscenes as well)
+- Scene manager for Main Menu and Game
 
 # Potential features
 - Save and load states
 - Randomly generated map per run
 - Turn-based combat with enemies
 - Use CMake
+- Cutscenes
 
 # Skills demonstrated
 - C++
