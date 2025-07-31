@@ -27,7 +27,7 @@ I really enjoyed my text adventure coursework in university but didn't have enou
 
 # Skills demonstrated
 - C++
-- Kanban methodology with Jira ![Kanban]((gitvisuals/jira1.png)
+- Kanban methodology with Jira ![Kanban](gitvisuals/jira1.png)
 - Git
 - Branch management with Jira for features
 
