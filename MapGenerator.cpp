@@ -51,7 +51,7 @@ std::string MapGenerator::createMinimap(std::map<int, std::string>* minimapRooms
     std::string x10 = (*minimapRooms)[10];
     std::string x11 = (*minimapRooms)[11];
 
-    std::string minimapRow1 = std::string()  + nnn + nnn + nnn + nnn + nnn + nnn + nnn + nnn + nnn + nnn + nnn + "\n";
+    std::string minimapRow1 = std::string()  + "\n" + nnn + nnn + nnn + nnn + nnn + nnn + nnn + nnn + nnn + nnn + nnn + "\n";
     std::string minimapRow2 = std::string()  + nnn + nnn + nnn + nnn + nnn + x11 + nnn + nnn + nnn + nnn + nnn + "\n";
     std::string minimapRow3 = std::string()  + nnn + nnn + nnn + nnn + nnn + UUU + nnn + nnn + nnn + nnn + nnn + "\n";
     std::string minimapRow4 = std::string()  + nnn + nnn + nnn + x09 + OOO + x08 + OOO + x10 + nnn + nnn + nnn + "\n";
@@ -59,7 +59,7 @@ std::string MapGenerator::createMinimap(std::map<int, std::string>* minimapRooms
     std::string minimapRow6 = std::string()  + nnn + nnn + nnn + x05 + OOO + x04 + OOO + x06 + OOO + x07 + nnn + "\n";
     std::string minimapRow7 = std::string()  + nnn + nnn + nnn + nnn + nnn + UUU + nnn + nnn + nnn + nnn + nnn + "\n";
     std::string minimapRow8 = std::string() + nnn + x01 + OOO + x02 + OOO + x03 + nnn + nnn + nnn + nnn + nnn + "\n";
-    std::string minimapRow9 = std::string() + nnn + nnn + nnn + nnn + nnn + nnn + nnn + nnn + nnn + nnn + nnn + "\n";
+    std::string minimapRow9 = std::string() + nnn + nnn + nnn + nnn + nnn + nnn + nnn + nnn + nnn + nnn + nnn + "\n\n";
 
     std::string finalMap = std::string()
     + minimapRow1
