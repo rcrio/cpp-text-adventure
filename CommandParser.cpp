@@ -55,7 +55,13 @@ void CommandParser::processGameCommand(Map* map) {
     std::string input = getInput();
 
     if (input == "help") {
-        std::cout << "Nothing here at the moment...\n";
+        std::cout << "Objective: No objectives currently in the game. Feel free to move about.\n";
+        std::cout << "Type a command and press enter to execute the command. Commands: \n";
+        std::cout << "go north: Move north if there is an exit north.\n";
+        std::cout << "go south: Move south if there is an exit south.\n";
+        std::cout << "go west: Move west if there is an exit west.\n";
+        std::cout << "go east: Move east if there is an exit east.\n";
+        std::cout << "exit: Go back to the main menu.\n";
     }
     else if (input == "go north") {
         if (room->getNorth() != nullptr) {
