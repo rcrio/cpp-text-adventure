@@ -99,6 +99,9 @@ void CommandParser::processGameCommand(Map* map) {
         this->inMenu = true;
         this->inGame = false;
     }
+    else if (input == "view") {
+        
+    }
     else {
             std::cout << "Invalid command, please try again or type and enter 'help' to get a list of commands.\n\n";
     }
