@@ -1,3 +1,13 @@
-*.o
-*/build/
+# Build folder
+/build/
+
+# Object files
+*.o 
+*.obj
+
+# Executable files
 *.exe
+
+# Temporary or log files
+*.log
+*.tmp
